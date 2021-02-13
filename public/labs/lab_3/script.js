@@ -2,7 +2,7 @@
 
 const slideArray = [];
 for (let i = 0; i < document.querySelectorAll('.slider div').length; i++) {
-  slideArray.push(document.querySelectorAll('.slider div')[i].dataset.background);
+    slideArray.push(document.querySelectorAll('.slider div')[i].dataset.background);
 }
 
 let currentSlideIndex = -1;
