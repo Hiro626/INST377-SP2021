@@ -1,29 +1,26 @@
 /* Put your javascript in here */
 
 const slideArray = [];
-for (let i = 0; i < document.querySelectorAll('.slider div').length; i++) {
-    slideArray.push(document.querySelectorAll('.slider div')[i].dataset.background);
+for (let li of carousel.querySelectorAll('li')) {
+    li.style.position = 'relative';
+    li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
+    i++;
 }
 
-let currentSlideIndex = -1;
+let width = 130; 
+    let count = 3; 
+    let list = carousel.querySelector('ul');
+    let listElems = carousel.querySelectorAll('li');
+    let position = 0; // ribbon scroll position
 
-function advanceSliderItem() {
-    currentSlideIndex++;
+carousel.querySelector('.prev').onclick = function () {
+    position += width * count;
+    position = Math.min(position, 0)
+    list.style.marginLeft = position + 'px';
+};
 
-    if (currentSlideIndex >= slideArray.length) {
-    currentSlideIndex = 0;
-    }
-
-    document.querySelector('.slider').style.cssText = `background: 
-        url("${slideArray[currentSlideIndex]}") no-repeat center center; background-size: cover;`;
-
-    const elems = document.getElementsByClassName('caption');
-    for (let i = 0; i < elems.length; i++) {
-        elems[i].style.cssText = 'opacity: 0;';
-    }
-
-    const currentCaption = document.querySelector(`.caption-${currentSlideIndex}`);
-    currentCaption.style.cssText = 'opacity: 1;';
-    }
-
-    let intervalID = setInterval(advanceSliderItem, 3000);
+carousel.querySelector('.next').onclick = function () {
+    position -= width * count;
+    position = Math.max(position, -width * (listElems.length - count));
+    list.style.marginLeft = position + 'px';
+};
