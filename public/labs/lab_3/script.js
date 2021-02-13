@@ -1,6 +1,12 @@
 /* Put your javascript in here */
 let i = 1;
-for (let li of carousel.querySelectorAll('li')) {
+
+const imageArray = ["onigiri_1", "onigiri_2", "onigiri_3", "onigiri_4",
+    "roll_1", "roll_2", "roll_3"];
+
+let li = imageArray.forEach() 
+    
+carousel.querySelectorAll('li') {
     li.style.position = 'relative';
     li.insertAdjacentHTML('beforeend', `<span style="position:absolute;left:0;top:0">${i}</span>`);
     i++;
@@ -24,7 +30,5 @@ carousel.querySelector('.next').onclick = function () {
     list.style.marginLeft = position + 'px';
 };
 
-/*
-const slideArray = ["onigiri_1", "onigiri_2", "onigiri_3", "onigiri_4",
-    "roll_1", "roll_2", "roll_3"];
+
 
