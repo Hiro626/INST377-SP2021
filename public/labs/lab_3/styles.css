@@ -7,7 +7,7 @@ body {
 }
 
 .carousel {
-  position: relative;
+  position: fixed;
   left: 35%;
   width: 398px;
   padding: 10px 40px;

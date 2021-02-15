@@ -1,8 +1,4 @@
 /* Put your javascript in here */
-const imageArray = ["onigiri_1", "onigiri_2", "onigiri_3", "onigiri_4",
-    "roll_1", "roll_2", "roll_3"];
-
-
 let width = 130; 
 let count = 3; 
 let list = carousel.querySelector('ul');
@@ -21,5 +17,15 @@ carousel.querySelector('.next').onclick = function() {
     list.style.marginLeft = position + 'px';
 };
 
+function implement() {
+    const x = [];
+    const y = [document.querySelector('.image')];
+    images.forEach((element) => {
+        const z = element.querySelector('li');
+        console.log(element);
+        x.append(z);
+    })
+    console.log(x);
+}
 
-
+implement()
