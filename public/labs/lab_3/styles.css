@@ -8,12 +8,14 @@ body {
 
 .carousel {
   position: fixed;
-  left: 35%;
+  top: 50%;
+  left: 50%;
   width: 398px;
   padding: 10px 40px;
   border: 1px solid #ccc;
   border-radius: 15px;
   background: rgb(223, 73, 106);
+  transform: translate(-50%, -50%);
 }
 
 .carousel img {
