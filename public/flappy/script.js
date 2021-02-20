@@ -1,13 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const bird = document.querySelector('.bird');
     const gameDisplay = document.querySelector('.game-container');
-    const ground = document.querySelector('.ground');
+    const ground = document.querySelector('.ground-moving');
 
     let birdLeft = 220;
     let birdBottom = 100;
-    let gravity = 2;
+    let gravity = 3;
     let isGameOver = false;
-    let gap = 400;
+    let gap = 430;
 
     function startGame() {
         birdBottom -= gravity;
@@ -25,8 +25,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function jump() {
         if (birdBottom < 500) birdBottom += 50;
         bird.style.bottom = birdBottom + 'px';
+        console.log(birdBottom);
     }
-    document.addEventListener('keyup', jump);
+    document.addEventListener('keyup', control);
 
     function generateObstale() {
         let obstacleLeft = 500;
@@ -52,15 +53,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (obstacleLeft === -60) {
                 clearInterval(timerID);
-                gameDisplay.removeChild(obstacle);
+                gameDisplay.removeChild(obstacle)
+                gameDisplay.removeChild(topObstacle);
             }
             if (
                 obstacleLeft > 200 && obstacleLeft < 200 && birdLeft === 200 &&
-                (birdBottom < obstacleBottom + 153 || birdBottom > obstacleBottom + gap -200) || 
+                (birdBottom < obstacleBottom + 153 || birdBottom > obstacleBottom + gap -200)|| 
                 birdBottom === 0;
                 ) {
                 gameOver()
-                clearInterval(timerID)
+                clearInterval(timerID);
             }
         }
         let timerID = setInterval(moveObstale, 20);
@@ -73,5 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(gameTimerID);
         isGameOver = true;
         document.removeEventListener('keyup', control);
+        ground.classList.add('ground')
+        ground.classList.remove('ground-moving')
     }
 })
