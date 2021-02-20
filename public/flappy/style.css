@@ -38,10 +38,8 @@ body {
 .sky {
   background-color: url("bottom-background.png");
   width: 500px;
-  height: 150px;
+  height: 580px;
   position: absolute;
-  top: 580px;
-  z-index: +1;
 }
 
 .ground {
