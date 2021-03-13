@@ -16,19 +16,33 @@
     </head>
 </head>
 <body>
-    <div class='header'>
-        <h1><strong>Takahiro Kawasaki's Lab 5</strong></h1>
-    </div>
-    <div class='columns'>
-        <div class='column'>
-            <form action="" id="search-form">
-                <label for='search'></label>
-                <input type="text" id="search" name="search">
-                <button type='submit'>Submit</button>
-            </form>
-            <ul class='suggestions'>
-            </ul>
+    <section class="section">
+        <div class="container columns is-max-widescreen">
+            <div class="column info">
+                <h1 class="title">Takahiro Kawasaki's Lab 5</h1>
+                <div class="subtitle">Zip Code Food Search</div>
+
+                <div class="block">
+                    <form id="formElem">
+                        <label for="input">Enter a Zip Code:</label>
+                        <input type="text" id="input" name="text" class="input is-rounded is-small"
+                            placeholder="zipcode">
+                        <button class="button is-primary is-rounded" type="submit">Submit</button>
+                        <div class="column is-1"></div>
+                        <div class="reply-box block">
+                            <div class="reply-message"></div>
+                            <ul class="suggestions">
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="column">
+                <div id="mapid"></div>
+            </div>
         </div>
-    </div>
+    </section>
+    <script src="script.js"></script>
 </body>
+
 </html>
